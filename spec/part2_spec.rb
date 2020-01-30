@@ -25,6 +25,12 @@ describe '#starts_with_consonant?' do
       expect(starts_with_consonant?(string)).to be_truthy, "Incorrect results for input: \"#{string}\""
     end
   end
+#  it 'classifies true cases [custom]' , points: 0 do
+#    expect(starts_with_consonant?('V')).to be_truthy, "'V' is a consonant"
+#    %w[v vest Veeee crypt].each do |string|
+#      expect(starts_with_consonant?(string)).to be_truthy, "Incorrect results for input: \"#{string}\""
+#    end
+#  end
   it 'classifies false cases [10 points]' , points: 10 do
     expect(starts_with_consonant?('a')).to be_falsy, "'a' is not a consonant"
     %w[asdfgh Unix].each do |string|
