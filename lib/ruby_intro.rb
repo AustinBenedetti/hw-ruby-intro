@@ -97,9 +97,9 @@ end
 class BookInStock
   
   # Class Variables
-  attr_accessor :isbn
-  attr_accessor :price
-  
+  #attr_accessor :isbn
+  #attr_accessor :price
+
   def initialize _isbn, _price
     # Reference: https://apidock.com/ruby/ArgumentError for error handling with attr_accessor
     # Alternatively could manually define getters/setters
@@ -109,9 +109,35 @@ class BookInStock
     @price = _price
   end
   
+  def price
+    @price
+  end
+  
+  def price= x
+    if x <= 0
+      raise ArgumentError.new("Price cannot be <= 0")
+    end
+    @price = x
+  end
+    
+  def isbn= x
+    if x.empty? 
+      raise ArgumentError.new("isbn can not be empty")
+    end
+    @isbn = x
+  end
+  
+  def isbn
+    @isbn
+  end
+  
   def price_as_string 
     # Reference: https://makandracards.com/makandra/21807-ruby-number-formatting-only-show-decimals-if-there-are-any
     str_num = '$' + '%.2f' % @price
     return str_num
   end
 end
+
+#test = BookInStock.new("1234",12)
+#test.price = -12
+#test.isbn = ""
